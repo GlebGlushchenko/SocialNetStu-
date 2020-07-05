@@ -25,20 +25,3 @@ let mapStateToProps =(state)=>{
     }
 }
 export default connect (mapStateToProps,{setUserData,setUserAvatar,getUserData})(HeaderContainer);
-
-
-
-
-
-
-// authAPI.requestAuth()
-//     .then(data=>{
-//         if(data.resultCode === 0){
-//             let {id,login,email} = data.data
-//             this.props.setUserData(login,email,id)
-//             profileAPI.getProfile(this.props.id)
-//                 .then(data=>{
-//                     return this.props.setUserAvatar(data.photos.small)
-//                 })
-//         }
-//     })

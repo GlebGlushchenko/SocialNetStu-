@@ -4,7 +4,6 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 
 
-
 const Users = (props)=>{
 
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -42,8 +41,7 @@ const Users = (props)=>{
                     <div>{us.status}</div>
                 </span>
                 <span>
-                    {/*<div>{us.location.country}</div>*/}
-                    {/*<div>{us.location.city}</div>*/}
+
                 </span>
             </span>
                 </div>)}
@@ -52,28 +50,4 @@ const Users = (props)=>{
 }
 
 export default Users
-
-
-
-
-// props.toggleIsFollowingIsProgress(true,us.id)
-// followAPI.postFollow(us.id)
-//     .then(data=>{
-//         if(data.resultCode === 0){
-//             props.followSuccess(us.id)
-//         }
-//         props.toggleIsFollowingIsProgress(false,us.id)
-//     })
-
-
-
-
-// props.toggleIsFollowingIsProgress(true,us.id)
-// followAPI.deleteFolllow(us.id)
-//     .then(data=>{
-//         if(data.resultCode === 0){
-//             props.unfollowSuccess(us.id)
-//         }
-//         props.toggleIsFollowingIsProgress(false,us.id)
-//     })
 

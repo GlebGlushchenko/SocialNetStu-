@@ -29,25 +29,3 @@ let mapStateToProps = (state)=>({
 export default connect(mapStateToProps,{setUserProfile,setUserData,getUserProfile})(withRouter(ProfileContainer)) ;
 
 
-
-
-// if(this.props.id === null){
-//     authAPI.requestAuth()
-//         .then(data=>{
-//             let {id,login,email} = data.data
-//             this.props.setUserData(login,email,id)
-//         }).then(data=>{
-//             let userId = this.props.id
-//             if(!userId){
-//                 userId = 2
-//             }
-//             profileAPI.getProfile(userId)
-//                 .then(data =>{
-//                     return  this.props.setUserProfile(data)
-//                 })
-//         }
-//
-//     )
-// }
-
-
