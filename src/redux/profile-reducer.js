@@ -66,7 +66,7 @@ export const getUserProfile =(usersId)=>{
                 }).then(data=>{
                     let userId = usersId
                     if(!userId){
-                        userId = 2
+                        userId = 3
                     }
                     profileAPI.getProfile(userId)
                         .then(data =>{
