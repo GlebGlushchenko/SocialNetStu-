@@ -35,15 +35,7 @@ const Users = (props)=>{
                     : <button disabled={props.followingIsProgress.some(id => id === us.id)} onClick={() => {props.follow(us.id)}}>Follow</button>}
                 </div>
             </span>
-            <span>
-                <span>
-                    <h2>{us.name}</h2>
-                    <div>{us.status}</div>
-                </span>
-                <span>
-
-                </span>
-            </span>
+           
                 </div>)}
         </div>
     )
