@@ -1,0 +1,22 @@
+.container{
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  padding: 10px;
+}
+
+.app__wrapper{
+  display: grid;
+  grid-template-rows: 100px 1fr ;
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas:
+  'h h'
+  'n c';
+}
+
+.app__wrapper-content{
+  grid-area: c;
+  background-color: yellow;
+}
+
+

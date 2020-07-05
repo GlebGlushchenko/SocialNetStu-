@@ -1,0 +1,33 @@
+.img{
+    width: 100%;
+    height: auto;
+}
+
+.jobIcon{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.job_Search{
+    display: flex;
+    align-items: center;
+}
+
+.JobDescription{
+    font-weight: bold;
+}
+
+.avatar_img{
+    border-radius: 50px ;
+    max-width: 100px;
+    height: auto;
+
+}
+
+.about_wrapper{
+}
+
+.contacts_wrapper{
+
+}
+

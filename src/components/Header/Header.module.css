@@ -1,0 +1,49 @@
+.header{
+    grid-area: h;
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+}
+
+
+.logo{
+    width: 100px;
+    height: auto;
+
+}
+
+.loginBlock p{
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+}
+
+.loginBlock{
+    display: flex;
+    align-items: center;
+}
+
+.loginAvata{
+    border-radius: 50%;
+    width: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.link{
+    color: whitesmoke;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: all .2s linear;
+    font-size: 15px ;
+}
+
+.link:hover{
+    color: black;
+    background-color: white;
+}

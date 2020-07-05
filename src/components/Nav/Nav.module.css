@@ -1,0 +1,36 @@
+.nav{
+    grid-area: n;
+    background-color: green;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.item{
+    margin-bottom: 5px;
+}
+.item:last-child{
+    margin-top: 50px;
+}
+
+.link{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    transition: all .2s linear;
+}
+
+.link:hover{
+    color: gray;
+}
+
+.link.active{
+    color: red;
+}
+
+.fridnsSideBar{
+    display: flex;
+
+}
+
+.bestFriends{
+   color: #fff;
+}

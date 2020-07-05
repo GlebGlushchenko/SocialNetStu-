@@ -1,0 +1,42 @@
+.dialogs{
+    display: grid;
+    grid-template-columns:2fr 10fr ;
+
+}
+
+.active{
+    color: red;
+    text-decoration: none;
+}
+
+.dialogsItems{
+    padding: 10px;
+    border-right: 2px solid black;
+}
+
+.dialog{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.massages{
+    padding: 10px;
+}
+
+.massage{}
+
+.img{
+    width: 50px;
+    margin-right: 10px;
+}
+.link{
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+
+}
+.link:hover{
+    color: red;
+}
