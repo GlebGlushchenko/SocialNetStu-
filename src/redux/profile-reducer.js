@@ -55,28 +55,34 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = () => ({type: ADD_POST})
 export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
-
-export const getUserProfile =(usersId)=>{
-    return (dispatch)=>{
-        if(usersId === null){
-            authAPI.requestAuth()
-                .then(data=>{
-                    let {id,login,email} = data.data
-                    dispatch(setUserData(login,email,id))
-                }).then(data=>{
-                    let userId = usersId
-                    if(!userId){
-                        userId = 2
-                    }
-                    profileAPI.getProfile(userId)
-                        .then(data =>{
-                            return  dispatch(setUserProfile(data))
-                        })
-                }
-
-            )
-        }
-    }
+export const getUserProfile =(userId) => (dispathch) =>{
+    profileAPI.getProfile(userId).then(response =>{
+        dispathch(setUserProfile(response.data))
+    })
 }
+
+// export const getUserProfile =(usersId)=>{
+//     return (dispatch)=>{
+//         if(usersId === null){
+//             authAPI.requestAuth()
+//                 .then(data=>{
+//                     let {id,login,email} = data.data
+//                     dispatch(setUserData(login,email,id))
+//                 }).then(data=>{
+//                     let userId = usersId
+//                     if(!userId){
+//
+//                         userId = 2
+//                     }
+//                     profileAPI.getProfile(userId)
+//                         .then(data =>{
+//                             return  dispatch(setUserProfile(data))
+//                         })
+//                 }
+//
+//             )
+//         }
+//     }
+// }
 
 export default profileReducer

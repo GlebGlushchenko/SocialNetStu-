@@ -32,21 +32,16 @@ const authReducer = (state = initialState, action) => {
 }
 export const setUserData = (login,email,id) =>({type:SET_USERS_DATA,data:{id,email,login}})
 export const setUserAvatar = (avatar) =>({type:SET_USERS_AVATAR,avatar})
-
-export const getUserData = (userId)=>{
-    return (dispatch)=>{
-        authAPI.requestAuth()
-            .then(data=>{
-                if(data.resultCode === 0){
-                    let {id,login,email} = data.data
-                    dispatch(setUserData(login,email,id))
-                    profileAPI.getProfile(userId)
-                        .then(data=>{
-                            dispatch(setUserAvatar(data.photos.small))
-                        })
-                }
-            })
-    }
+export const getAuthUserData=()=>(dispathch)=>{
+    authAPI.requestAuth()
+        .then(response=>{
+            if(response.data.resultCode === 0){
+                let {id,login,email} = response.data.data
+                dispathch(setUserData(login,email,id))
+            }
+        })
 }
+
+
 
 export default authReducer

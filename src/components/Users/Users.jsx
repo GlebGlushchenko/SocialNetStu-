@@ -13,7 +13,6 @@ const Users = (props)=>{
     for(let i =1;i<=pagesCount;i++){
         pages.push(i)
     }
-
     return(
         <div className={classes.pageWrapper}>
             <div className={classes.page}>
