@@ -61,28 +61,5 @@ export const getUserProfile =(userId) => (dispathch) =>{
     })
 }
 
-// export const getUserProfile =(usersId)=>{
-//     return (dispatch)=>{
-//         if(usersId === null){
-//             authAPI.requestAuth()
-//                 .then(data=>{
-//                     let {id,login,email} = data.data
-//                     dispatch(setUserData(login,email,id))
-//                 }).then(data=>{
-//                     let userId = usersId
-//                     if(!userId){
-//
-//                         userId = 2
-//                     }
-//                     profileAPI.getProfile(userId)
-//                         .then(data =>{
-//                             return  dispatch(setUserProfile(data))
-//                         })
-//                 }
-//
-//             )
-//         }
-//     }
-// }
 
 export default profileReducer
