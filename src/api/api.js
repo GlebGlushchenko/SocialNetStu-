@@ -28,6 +28,9 @@ export  const followAPI ={
 
     postFollow(id){
         return instance.post(`follow/${id}`)
+            .then(response=>{
+                return response.data
+            })
     }
 
 }
