@@ -38,18 +38,15 @@ export  const followAPI ={
 export const authAPI ={
     requestAuth(){
         return instance.get('auth/me')
-            .then(response=>{
-                return response.data
-            })
     }
 }
 
 export const profileAPI = {
-    getProfile(id){
-        return instance(`profile/${id}`)
-            .then(response=>{
-                return response.data
-            })
+    getProfile(userId){
+        return instance(`profile/${userId}`)
     }
 }
 
+    // .then(response=>{
+    //     return response.data
+    // })

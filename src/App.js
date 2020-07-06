@@ -10,6 +10,7 @@ import FriendsContainer from './components/Nav/Friends/FriendsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import Login from './components/Login/Login'
 
 
 
@@ -27,6 +28,7 @@ const App = (props) => {
                         <Route path='/music' component={Music}/>
                         <Route path='/settings' component={Settings}/>
                         <Route path='/fridends' render={ () => <FriendsContainer />}/>
+                        <Route path='/login' render={ () => <Login />}/>
                     </div>
                 </div>
             </div>

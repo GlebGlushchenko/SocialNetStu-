@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import DailogItem from './DialogItem/DialogItem';
 import Massage from './Massage/Massage';
+import {Redirect} from 'react-router-dom';
 
 
 const Dialogs = (props) => {
@@ -18,6 +19,7 @@ const Dialogs = (props) => {
         props.UpdateNewMassageText(text)
 
     }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
