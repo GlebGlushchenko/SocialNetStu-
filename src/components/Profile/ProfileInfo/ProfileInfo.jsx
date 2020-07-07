@@ -5,6 +5,7 @@ import yes from '../../../assets/images/yes.png'
 import no from '../../../assets/images/criss-cross.png'
 import logo from '../../../assets/images/1.png'
 import {NavLink} from 'react-router-dom';
+import ProfileStatus from './ProfileStatus';
 
 const ProfileInfo = (props)=>{
 
@@ -26,6 +27,9 @@ const ProfileInfo = (props)=>{
                 <div>
                     <h2>{props.profile.fullName}</h2>
                 </div>
+                 <div>
+                     <ProfileStatus status={'Hi my friends'} />
+                 </div>
                 <div>
                     <p>{!props.profile.aboutMe?`Lorem Ipsum`:props.profile.aboutMe}</p>
                 </div>
