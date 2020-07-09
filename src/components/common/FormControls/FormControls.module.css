@@ -1,0 +1,43 @@
+.formControl.error input,
+.formControl.error textarea{
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.formControl.error span{
+    color: red;
+    font-weight: 700;
+}
+
+.formControl{
+    display: flex;
+    align-items: center;
+}
+
+.formConroleTextarea{
+    resize:none;
+    width: 250px;
+    height: 100px;
+    opacity: .9;
+}
+.formConroleIntut{
+
+}
+
+.formErrar{
+    border: 1px solid red;
+    margin-left: 2rem;
+    padding: 9px;
+    position: relative;
+    border-radius: 5px;
+}
+
+.formErrar:after{
+    content: "";
+    width: 35px;
+    height: 1px;
+    background-color: red;
+    left: -35px;
+    top: 20px;
+    position: absolute;
+}

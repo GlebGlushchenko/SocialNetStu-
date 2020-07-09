@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css';
-import Preloader from '../../common/preloader/Preloader';
+import Preloader from '../../common/Preloader/Preloader';
 import yes from '../../../assets/images/yes.png'
 import no from '../../../assets/images/criss-cross.png'
 import logo from '../../../assets/images/1.png'
