@@ -1,10 +1,10 @@
 import {authAPI, profileAPI} from '../api/api';
 import {setUserData} from './auth-reducer';
 
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_USERS_PROFILE = 'ADD-SET_USERS_PROFILE';
 const GET_USER_STATUS ='GET_USER_STATUS'
+
 
 
 let initialState = {
@@ -30,8 +30,7 @@ let initialState = {
             likesCounter: 0 ,
             avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-367-456319.png'
         },
-    ],
-    newPostText: 'Hi, how are you?'
+    ]
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -39,14 +38,11 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
-            let body = state.newPostText
+            let body = action.newPostBody
             return {
                 ...state,
-                postData: [...state.postData, {massage: body, id: '0', likesCounter: 0, avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png'}],
-                newPostText: ''
+                postData: [...state.postData, {massage: body, id: '0', likesCounter: 0, avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png'}]
             }
-        case UPDATE_NEW_POST_TEXT:
-            return {...state, newPostText: action.newText}
 
         case SET_USERS_PROFILE:
             return {...state,profile:action.profile}
@@ -54,12 +50,12 @@ const profileReducer = (state = initialState, action) => {
         case GET_USER_STATUS:
             return {...state,status: action.status}
 
+
         default:
             return state
     }
 }
-export const addPost = () => ({type: ADD_POST})
-export const updateNewPostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text})
+export const addPost = (newPostBody) => ({type: ADD_POST,newPostBody})
 export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
 export const setUsersStatus = (status) => ({type: GET_USER_STATUS,status:status})
 

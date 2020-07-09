@@ -3,6 +3,7 @@ import classes from './Dialogs.module.css';
 import DailogItem from './DialogItem/DialogItem';
 import Massage from './Massage/Massage';
 import {Redirect} from 'react-router-dom';
+import {Field, reduxForm} from 'redux-form';
 
 
 const Dialogs = (props) => {
@@ -11,13 +12,8 @@ const Dialogs = (props) => {
     let massages = props.dialogPage.massageData.map(massageData => <Massage massage={massageData.massage} id={massageData.id} avatar={massageData.avatar} key={massageData.id} />)
 
 
-    let addMassage = ()=>{
-        props.addMassage()
-    }
-    let onMassageChange=(e)=>{
-        let text = e.target.value
-        props.UpdateNewMassageText(text)
-
+    const onSubmit =(formData)=>{
+        props.addMassage(formData.newMessageBody)
     }
 
     return (
@@ -27,14 +23,29 @@ const Dialogs = (props) => {
             </div>
             <div className={classes.massages}>
                 {massages}
-                <div>
-                    <textarea onChange={onMassageChange} value={props.dialogPage.newMassageText} placeholder={'Enter new Massage'}/>
-                    <div>
-                        <button onClick={addMassage}>Send</button></div>
-                </div>
+                <AddMessegeReduxForm onSubmit={onSubmit} />
             </div>
         </div>
     )
 };
+
+const AddMassagmeForm =(props)=>{
+    return(
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field name={'newMessageBody'} component={'textarea'} placeholder={'Enter you new message...'}></Field>
+            </div>
+            <div>
+                <button>Send</button>
+            </div>
+        </form>
+    )
+}
+
+// const afterSubmit =(result)=>
+//     reset('AddMessegeReduxForm')
+// onSubmitSuccess: afterSubmit
+
+const AddMessegeReduxForm = reduxForm({form:'addMessage'})(AddMassagmeForm)
 
 export default Dialogs;

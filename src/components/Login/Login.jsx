@@ -1,6 +1,10 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
 
+const onSubmit = (formData) => {
+    console.log(formData)
+}
+
 const LoginForm =(props)=>{
     return(
         <form onSubmit={props.handleSubmit}>
@@ -22,9 +26,7 @@ const LoginForm =(props)=>{
 
 const LoginReduxForm = reduxForm({form:'login'})(LoginForm)
 
-const onSubmit = (formData) => {
-    console.log(formData)
-}
+
 const Login = (props)=>{
     return(
         <div>
