@@ -3,12 +3,27 @@
     height: auto;
 }
 
+.avatarWrapper{
+    margin-right: 20px;
+}
+
+.wrapperItemUser{
+    display: flex;
+    align-items: center;
+}
+
 .selectedPage{
     font-weight: bold;
     cursor: pointer;
-    background-color: gray;
+    background-color: cadetblue;
+    color: whitesmoke;
 
 }
+
+.hr{
+    margin: 5px 0 50px 0;
+}
+
 .page{
     margin: 20px;
 
@@ -17,7 +32,6 @@
     font-size: 12px;
     margin-right: 10px;
     cursor: pointer;
-    border: 1px solid black;
     border-radius:2px ;
     padding: 5px 10px;
     transition: all .2s linear;
@@ -124,6 +138,48 @@
         transform: rotate(360deg);
     }
 }
+
+
+
+
+
+.btnUnfollow{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: gray;
+    border-radius: 2px ;
+    cursor: pointer;
+    color: whitesmoke;
+    opacity: 1;
+    transition: .2s all linear;
+
+
+}
+
+.btnFollow{
+    width: 100px;
+    height: 30px;
+    border: none;
+    background-color: cadetblue;
+    border-radius: 2px ;
+    cursor: pointer;
+    color: whitesmoke;
+    opacity: 1;
+    transition: .2s all linear;
+}
+
+.btnUnfollow:hover{
+    background-color: cadetblue;
+
+}
+
+.btnFollow:hover{
+    background-color: gray;
+
+}
+
+
 
 
 

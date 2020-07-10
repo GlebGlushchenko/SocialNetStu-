@@ -21,17 +21,18 @@ const Users = (props)=>{
                              onClick={(e)=>{
                              props.onChangeToPage(pag)}}>{pag}</span>})}
             </div>
+            <hr className={classes.hr}/>
 
             {props.users.map(us=><div key={us.id}>
-            <span>
-                <div>
-                    <NavLink to={`./profile/${us.id}`}>
+            <span className={classes.wrapperItemUser}>
+                <div className={classes.avatarWrapper}>
+                    <NavLink  to={`./profile/${us.id}`}>
                         <img className={classes.avatar} src={us.photos.small != null ? us.photos.small : userPhoto} alt="Avatar"/>
                     </NavLink>
                 </div>
                 <div>{us.followed
-                    ? <button disabled={props.followingIsProgress.some(id => id === us.id)} onClick={()=>{props.unFollow(us.id)}}>Unfollow</button>
-                    : <button disabled={props.followingIsProgress.some(id => id === us.id)} onClick={() => {props.follow(us.id)}}>Follow</button>}
+                    ? <button className={classes.btnUnfollow} disabled={props.followingIsProgress.some(id => id === us.id)} onClick={()=>{props.unFollow(us.id)}}>Unfollow</button>
+                    : <button className={classes.btnFollow} disabled={props.followingIsProgress.some(id => id === us.id)} onClick={() => {props.follow(us.id)}}>Follow</button>}
                 </div>
             </span>
             <span>
