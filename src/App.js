@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import Nav from './components/Nav/Nav.jsx';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -11,11 +11,27 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Login from './components/Login/Login'
+import {connect} from 'react-redux';
+import {compose} from 'redux';
+import {initializedApp} from './redux/app-reducer';
+import Preloader from './components/common/Preloader/Preloader';
 
 
 
-const App = (props) => {
-    return (
+
+class App extends React.Component{
+
+    componentDidMount() {
+        this.props.initializedApp()
+
+    }
+
+    render() {
+        if(!this.props.initialized){
+            return <Preloader />
+        }
+
+        return (
             <div className='container'>
                 <div className='app__wrapper'>
                     <HeaderContainer/>
@@ -32,7 +48,18 @@ const App = (props) => {
                     </div>
                 </div>
             </div>
-            )};
+        )};
+    }
 
-export default App;
+const mapStateToProps =(state)=>({
+    initialized:state.app.initialized
+})
+
+export default compose(
+    withRouter,
+    connect (mapStateToProps,{initializedApp})
+
+)(App)
+
+
 

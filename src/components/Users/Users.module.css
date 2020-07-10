@@ -33,6 +33,13 @@
     padding: 10px;
 }
 
+.das{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+}
+
+
 .lds_roller {
     display: inline-block;
     position: relative;
@@ -47,10 +54,10 @@
     content: " ";
     display: block;
     position: absolute;
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: red;
+    background: cadetblue;
     margin: -4px 0 0 -4px;
 }
 .lds_roller div:nth-child(1) {

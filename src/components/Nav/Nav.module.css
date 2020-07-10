@@ -1,6 +1,6 @@
 .nav{
     grid-area: n;
-    background-color: green;
+    background-color: gray;
     padding-left: 10px;
     padding-top: 10px;
 }
@@ -19,11 +19,12 @@
 }
 
 .link:hover{
-    color: gray;
+    color: black;
+    font-weight: 700;
 }
 
 .link.active{
-    color: red;
+    color: cadetblue;
 }
 
 .fridnsSideBar{

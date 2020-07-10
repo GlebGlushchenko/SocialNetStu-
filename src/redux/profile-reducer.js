@@ -59,14 +59,14 @@ export const addPost = (newPostBody) => ({type: ADD_POST,newPostBody})
 export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
 export const setUsersStatus = (status) => ({type: GET_USER_STATUS,status:status})
 
-export const getUserProfile =(userId) => (dispathch) =>{
+export const getUserProfile =(userId) => (dispatch) =>{
     profileAPI.getProfile(userId).then(response =>{
-        dispathch(setUserProfile(response.data))
+        dispatch(setUserProfile(response.data))
     })
 }
-export const getUsersStatus =(userId) =>(dispathch)=>{
+export const getUsersStatus =(userId) =>(dispatch)=>{
     profileAPI.getStatus(userId).then(response =>{
-        dispathch(setUsersStatus(response.data))
+        dispatch(setUsersStatus(response.data))
     })
 }
 export const updateUsersStatus =(status)=>(dispatch)=>{

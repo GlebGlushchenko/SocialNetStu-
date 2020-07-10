@@ -5,6 +5,7 @@ import {required} from '../../utilite/validator';
 import {connect} from 'react-redux';
 import {login} from '../../redux/auth-reducer';
 import {Redirect} from 'react-router-dom';
+import classes from './Login.module.css'
 
 
 
@@ -14,19 +15,24 @@ const Input = Elements('input')
 const LoginForm =(props)=>{
 
     return(
-        <form onSubmit={props.handleSubmit}>
+        <form className={classes.form} onSubmit={props.handleSubmit}>
             <div>
-                <Field placeholder="Email" name={'email'} type={'email'} component={Input} validate={[required]}/>
+                <div>
+                    <Field placeholder="Email" name={'email'} type={'email'} component={Input} validate={[required]}/>
+                </div>
+                <div>
+                    <Field placeholder="Password" name={'password'} type={'password'} component={Input} validate={[required]}/>
+                </div>
+                <div>
+                    <Field type={'checkbox'} name={'rememberMe'} component={'input'}/> Remember me
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
             </div>
-            <div>
-                <Field placeholder="Password" name={'password'} type={'password'} component={Input} validate={[required]}/>
-            </div>
-            <div>
-                <Field type={'checkbox'} name={'rememberMe'} component={'input'}/> Remember me
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
+            {props.error && <div className={classes.error}>
+                <div>{props.error}</div>
+            </div>}
         </form>
     )
 }
