@@ -1,10 +1,10 @@
-import {authAPI, profileAPI} from '../api/api';
-import {setUserData} from './auth-reducer';
+import {profileAPI} from '../api/api';
 
-const ADD_POST = 'ADD-POST';
-const SET_USERS_PROFILE = 'ADD-SET_USERS_PROFILE';
-const GET_USER_STATUS ='GET_USER_STATUS'
-const DELET_POST ='DELET_POST'
+
+const ADD_POST = 'network/profile/ADD-POST';
+const SET_USERS_PROFILE = 'network/profile/ADD-SET_USERS_PROFILE';
+const GET_USER_STATUS ='network/profile/GET_USER_STATUS'
+const DELET_POST ='network/profile/DELET_POST'
 
 
 
@@ -36,7 +36,6 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
 
-
     switch (action.type) {
         case ADD_POST:
             let body = action.newPostBody
@@ -64,22 +63,21 @@ export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
 export const setUsersStatus = (status) => ({type: GET_USER_STATUS,status:status})
 export const deletePost = (postId) =>({type:DELET_POST,postId})
 
-export const getUserProfile =(userId) => (dispatch) =>{
-    profileAPI.getProfile(userId).then(response =>{
+export const getUserProfile =(userId) => async(dispatch) =>{
+   let response = await profileAPI.getProfile(userId)
         dispatch(setUserProfile(response.data))
-    })
 }
-export const getUsersStatus =(userId) =>(dispatch)=>{
-    profileAPI.getStatus(userId).then(response =>{
+
+export const getUsersStatus =(userId) => async(dispatch)=>{
+    let response = await profileAPI.getStatus(userId)
         dispatch(setUsersStatus(response.data))
-    })
 }
-export const updateUsersStatus =(status)=>(dispatch)=>{
-    profileAPI.updataStatus(status).then(response =>{
+
+export const updateUsersStatus =(status)=> async(dispatch)=>{
+    let response = await profileAPI.updataStatus(status)
         if (response.data.resultCode===0){
             dispatch(setUsersStatus(status))
         }
-    })
 }
 
 

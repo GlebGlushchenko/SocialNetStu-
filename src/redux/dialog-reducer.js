@@ -1,4 +1,4 @@
-const ADD_MASSAGE = 'ADD-MASSAGE';
+const ADD_MASSAGE = 'network/dialog/ADD-MASSAGE';
 
 
 let initialState = {
