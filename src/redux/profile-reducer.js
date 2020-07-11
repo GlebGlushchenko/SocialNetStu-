@@ -4,6 +4,7 @@ import {setUserData} from './auth-reducer';
 const ADD_POST = 'ADD-POST';
 const SET_USERS_PROFILE = 'ADD-SET_USERS_PROFILE';
 const GET_USER_STATUS ='GET_USER_STATUS'
+const DELET_POST ='DELET_POST'
 
 
 
@@ -50,6 +51,9 @@ const profileReducer = (state = initialState, action) => {
         case GET_USER_STATUS:
             return {...state,status: action.status}
 
+        case DELET_POST:
+            return {...state,postData: state.postData.filter(p=> p.id != action.postId)}
+
 
         default:
             return state
@@ -58,6 +62,7 @@ const profileReducer = (state = initialState, action) => {
 export const addPost = (newPostBody) => ({type: ADD_POST,newPostBody})
 export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
 export const setUsersStatus = (status) => ({type: GET_USER_STATUS,status:status})
+export const deletePost = (postId) =>({type:DELET_POST,postId})
 
 export const getUserProfile =(userId) => (dispatch) =>{
     profileAPI.getProfile(userId).then(response =>{
