@@ -1,51 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-class ProfileStatus extends React.Component{
-    state={
-        editMode: false,
-        status:this.props.status
-    }
-    activateEditMobe =()=>{
-        this.setState({
-            editMode:true
-        })
-    }
-    deactivateEditMode=()=>{
-        this.setState({
-            editMode:false
-        })
-        this.props.updateUserStatus(this.state.status)
-    }
-    onStatusChange=(e)=>{
-        this.setState({
-            status: e.currentTarget.value
-        })
-    }
-    componentDidUpdate(prevProps, prevState) {
-        if(prevProps.status !== this.props.status){
-            this.setState({
-                status:this.props.status
-            })
-        }
-    }
+const ProfileStatusWithHook = (props) =>{
+    const [editMode,setEditMode] = useState(false)
+    const [status,setStatus] = useState(props.status)
 
+    const activateEditMobe =()=>{
+       setEditMode(true)
+    }
+    const deactivateEditMode =()=>{
+        setEditMode(false)
+        props.updateUserStatus(status)
+    }
+    const onStatusChange =(e)=>{
+        setStatus(e.currentTarget.value)
+    }
+    useEffect(()=>{
+        setStatus(props.status)
+    },[props.status])
 
-    render() {
         return (
             <div>
-                {!this.state.editMode &&
+                {!editMode &&
                     <div>
-                        <span onDoubleClick={this.activateEditMobe}>{this.props.status || '---------'}</span>
+                        <span onDoubleClick={activateEditMobe} >{props.status || '---------'}</span>
                     </div>
                 }
-                {this.state.editMode &&
+                {editMode &&
                     <div>
-                        <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status}/>
+                        <input onBlur={deactivateEditMode} onChange={onStatusChange} autoFocus={true} value={status}/>
                     </div>
                 }
             </div>
         )
-    }
 }
 
-export default ProfileStatus
+export default ProfileStatusWithHook

@@ -5,8 +5,8 @@ import yes from '../../../assets/images/yes.png'
 import no from '../../../assets/images/criss-cross.png'
 import logo from '../../../assets/images/1.png'
 import {NavLink} from 'react-router-dom';
-import ProfileStatus from './ProfileStatus';
-import ProfileStatusWithHooks from './ProfileStatusWithHooks';
+
+import ProfileStatusWithHook from './ProfileStatusWithHook';
 
 const ProfileInfo = (props)=>{
 
@@ -30,7 +30,7 @@ const ProfileInfo = (props)=>{
                 </div>
                  <div>
                      {/*<ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>*/}
-                     <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
+                     <ProfileStatusWithHook status={props.status} updateUserStatus={props.updateUserStatus}/>
                  </div>
                 <div>
                     <p>{!props.profile.aboutMe?`Lorem Ipsum`:props.profile.aboutMe}</p>
