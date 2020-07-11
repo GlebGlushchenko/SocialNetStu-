@@ -6,6 +6,7 @@ import no from '../../../assets/images/criss-cross.png'
 import logo from '../../../assets/images/1.png'
 import {NavLink} from 'react-router-dom';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props)=>{
 
@@ -28,7 +29,8 @@ const ProfileInfo = (props)=>{
                     <h2>{props.profile.fullName}</h2>
                 </div>
                  <div>
-                     <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
+                     {/*<ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>*/}
+                     <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
                  </div>
                 <div>
                     <p>{!props.profile.aboutMe?`Lorem Ipsum`:props.profile.aboutMe}</p>
