@@ -3,24 +3,23 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post';
 import {Field, reduxForm} from 'redux-form';
 import {maxLengthCreator, required} from '../../../utilite/validator';
-import {Elements, Textarea} from '../../common/FormControls/FormControls';
+import {Elements} from '../../common/FormControls/FormControls';
 
 
 const maxLength10 = maxLengthCreator(10)
 
-const MyPosts = (props) => {
+const MyPosts = React.memo((props) => {
+    console.log('RENDER')
 
     let posts = props.postData.map(postData => <Post massage={postData.massage} likeCounter={postData.likesCounter} avatar={postData.avatar} key={postData.id}/>)
-
-
     const onSubmit = (formData) => {
         props.addPost(formData.newPostBady)
     }
 
-
     return (
 
-        <div className={classes.postsBlock}>My Post
+        <div className={classes.postsBlock}>
+            <h1>My Posts</h1>
             <h2>New post</h2>
             <PostAddReduxForm onSubmit={onSubmit}/>
             <div className={classes.item}>
@@ -28,7 +27,7 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-};
+});
 
 const textarea = Elements('textarea')
 

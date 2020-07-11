@@ -41,7 +41,7 @@ const profileReducer = (state = initialState, action) => {
             let body = action.newPostBody
             return {
                 ...state,
-                postData: [...state.postData, {massage: body, id: '0', likesCounter: 0, avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png'}]
+                postData: [...state.postData, {massage: body, id: '1', likesCounter: 0, avatar: 'https://cdn.iconscout.com/icon/free/png-512/avatar-372-456324.png'}]
             }
 
         case SET_USERS_PROFILE:
