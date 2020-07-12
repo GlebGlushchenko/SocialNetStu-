@@ -1,0 +1,26 @@
+.selectedPage{
+    font-weight: bold;
+    cursor: pointer;
+    background-color: cadetblue;
+    color: whitesmoke;
+
+}
+.page{
+    margin: 20px;
+
+}
+
+.page span{
+    font-size: 12px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius:2px ;
+    padding: 5px 10px;
+    transition: all .2s linear;
+
+}
+
+.page span:hover{
+    color: white;
+    background-color: gray;
+}

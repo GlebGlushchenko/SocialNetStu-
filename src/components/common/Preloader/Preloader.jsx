@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../../Users/Users.module.css';
+import classes from './Preloader.module.css'
 
 const Preloader = ()=>{
     return(

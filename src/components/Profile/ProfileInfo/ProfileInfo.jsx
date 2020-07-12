@@ -3,33 +3,34 @@ import classes from './ProfileInfo.module.css';
 import Preloader from '../../common/Preloader/Preloader';
 import yes from '../../../assets/images/yes.png'
 import no from '../../../assets/images/criss-cross.png'
-import logo from '../../../assets/images/1.png'
 import {NavLink} from 'react-router-dom';
 
 import ProfileStatusWithHook from './ProfileStatusWithHook';
 
 const ProfileInfo = (props)=>{
+    const defaultAvatar ='https://cdn.iconscout.com/icon/free/png-512/avatar-380-456332.png'
+    const bg ='https://www.glimmernet.com/wp-content/uploads/2019/01/network-dark-bg-02.jpg'
 
     if(!props.profile){
         return (
             <Preloader />
         )
     }
+
     return(
         <div>
             <div className={classes.wrappers}>
                 <img className={classes.img}
-                     src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/tnc_86887171.jpg?crop=0,176,3032,1667&wid=4000&hei=2200&scl=0.758"
+                     src= {bg}
                      alt=""/>
              <div className={classes.about_wrapper}>
                 <div>
-                    <NavLink to={`/profile/${props.profile.userId}`}><img className={classes.avatar_img} src={!props.profile.photos.small? logo:props.profile.photos.small} alt=""/></NavLink>
+                    <NavLink to={`/profile/${props.profile.userId}`}><img className={classes.avatar_img} src={!props.profile.photos.small? defaultAvatar:props.profile.photos.small} alt=""/></NavLink>
                 </div>
                 <div>
                     <h2>{props.profile.fullName}</h2>
                 </div>
                  <div>
-                     {/*<ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>*/}
                      <ProfileStatusWithHook status={props.status} updateUserStatus={props.updateUserStatus}/>
                  </div>
                 <div>

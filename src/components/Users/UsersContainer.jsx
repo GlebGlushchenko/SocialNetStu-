@@ -18,11 +18,13 @@ import {
 
 class UsersContainer extends React.Component{
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage,this.props.pageSize)
+        const {currentPage,pageSize} = this.props
+        this.props.getUsers(currentPage,pageSize)
     }
 
     onChangeToPage = (pag)=>{
-        this.props.getUsers(pag,this.props.pageSize)
+        const {pageSize} = this.props
+        this.props.getUsers(pag,pageSize)
     }
 
     render() {
@@ -52,8 +54,6 @@ let mapStateToProps = (state)=>{
         followingIsProgress:getFollowingIIsProgress(state)
     }
 }
-
-
 
 export default compose(
     connect(mapStateToProps,{setCurrentPage,getUsers,follow,unFollow})

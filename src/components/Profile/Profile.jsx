@@ -3,12 +3,12 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPostsContainer from './Posts/MyPostsContainer';
 import classes from './Profile.module.css'
 
-const Profile = (props) => {
+const Profile = ({profile,status,updateUserStatus}) => {
 
     return (
         <div className={classes.profileWrapper}>
-            <ProfileInfo profile={props.profile} status={props.status} updateUserStatus={props.updateUserStatus}/>
-            <hr className={classes.hr}/>
+            <ProfileInfo profile={profile} status={status} updateUserStatus={updateUserStatus}/>
+                <hr className={classes.hr}/>
             <MyPostsContainer/>
         </div>)
 };
