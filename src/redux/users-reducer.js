@@ -27,7 +27,6 @@ const usersReducer = (state = initialState, action) => {
     switch (action.type) {
         // если в в экшине type рашен FOLLOW то мы попадаем сюда \/
         case FOLLOW:
-            // этот кэйс возвращяет копию стейта
             return {
                 ...state,
                 users:updateObjectInArray(state.users,action.userId,'id',{followed:true})
