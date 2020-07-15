@@ -9,7 +9,7 @@ import {Elements} from '../../common/FormControls/FormControls';
 const maxLength10 = maxLengthCreator(10)
 
 const MyPosts = React.memo((props) => {
-   
+
     let posts = props.postData.map(postData => <Post massage={postData.massage} likeCounter={postData.likesCounter} avatar={postData.avatar} key={postData.id}/>)
     const onSubmit = (formData) => {
         props.addPost(formData.newPostBady)
