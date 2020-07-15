@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/SocialNetStu-/static/css/main.7b6e1339.chunk.css",
-    "main.js": "/SocialNetStu-/static/js/main.23430328.chunk.js",
-    "main.js.map": "/SocialNetStu-/static/js/main.23430328.chunk.js.map",
+    "main.js": "/SocialNetStu-/static/js/main.d5ca8961.chunk.js",
+    "main.js.map": "/SocialNetStu-/static/js/main.d5ca8961.chunk.js.map",
     "runtime-main.js": "/SocialNetStu-/static/js/runtime-main.1239d7e6.js",
     "runtime-main.js.map": "/SocialNetStu-/static/js/runtime-main.1239d7e6.js.map",
     "static/js/2.132ecb31.chunk.js": "/SocialNetStu-/static/js/2.132ecb31.chunk.js",
@@ -17,7 +17,7 @@
     "static/js/5.938a2665.chunk.js": "/SocialNetStu-/static/js/5.938a2665.chunk.js",
     "static/js/5.938a2665.chunk.js.map": "/SocialNetStu-/static/js/5.938a2665.chunk.js.map",
     "index.html": "/SocialNetStu-/index.html",
-    "precache-manifest.b7563689e1985d6cebf4c2b4cc50c495.js": "/SocialNetStu-/precache-manifest.b7563689e1985d6cebf4c2b4cc50c495.js",
+    "precache-manifest.d26ed1ec68eca528b924ff07844ae2eb.js": "/SocialNetStu-/precache-manifest.d26ed1ec68eca528b924ff07844ae2eb.js",
     "service-worker.js": "/SocialNetStu-/service-worker.js",
     "static/css/3.10fd2c14.chunk.css.map": "/SocialNetStu-/static/css/3.10fd2c14.chunk.css.map",
     "static/css/4.f5c90613.chunk.css.map": "/SocialNetStu-/static/css/4.f5c90613.chunk.css.map",
@@ -32,6 +32,6 @@
     "static/js/runtime-main.1239d7e6.js",
     "static/js/2.132ecb31.chunk.js",
     "static/css/main.7b6e1339.chunk.css",
-    "static/js/main.23430328.chunk.js"
+    "static/js/main.d5ca8961.chunk.js"
   ]
 }
