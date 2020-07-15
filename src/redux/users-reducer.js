@@ -15,10 +15,11 @@ let initialState = {
     users: [],
     user: 0,
     pageSize: 10 ,
-    totalUsersCount: 0,
+    totalItemsCount: 0,
     currentPage:1,
     isFetching:true,
-    followingIsProgress:[]
+    followingIsProgress:[],
+    portionSize: 10
 
 }
     // Создаём Reducer в который передаём наш дефолтный стейт и экшины
@@ -47,7 +48,7 @@ const usersReducer = (state = initialState, action) => {
 
         case TOTAL_USERS_COUNT:
             // копируем state и меняем значение которое пришло к нам в экшине + костыль делим это значение на 100 ибо там 5к пользователей а UI у нас не готов к этому
-            return {...state,totalUsersCount: action.totalUsersCount/100}
+            return {...state,totalItemsCount: action.totalItemsCount}
 
         case TOGGLE_IS_FETCHING:
             // копируем state и записываем новое значение из экшbна
@@ -75,7 +76,7 @@ export const followSuccess = (userId) => ({type: FOLLOW, userId})
 export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (currentPage) => ({type: CURRENT_PAGE,currentPage})
-export const setTotalUsersCount = (totalUsersCount) => ({type: TOTAL_USERS_COUNT,totalUsersCount})
+export const totalItemsCount = (totalItemsCount) => ({type: TOTAL_USERS_COUNT,totalItemsCount})
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING,isFetching} )
 export const toggleIsFollowingIsProgress = (isFetching,id) => ({type: TOGGLE_IS_FOLOOWING_PROGRESS,isFetching,id} )
 // Thunk Creator ему можно передать значение в параметры а обычной санке нет обычная санка просто принемает диспатч для это го мы и делаем для неё обёртку
@@ -88,7 +89,7 @@ export const getUsers =(currentPage,pageSize)=> {
         dispatch(toggleIsFetching(true))
         let data = await userAPI.getUsers(currentPage,pageSize)
         dispatch(setUsers(data.items))
-        dispatch(setTotalUsersCount(data.totalCount))
+        dispatch(totalItemsCount(data.totalCount))
         dispatch(toggleIsFetching(false))
 
     }

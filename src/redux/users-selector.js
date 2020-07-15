@@ -14,7 +14,7 @@ export const getPageSize =(state)=>{
 }
 
 export const getTotalUsersCount =(state)=>{
-    return state.usersPage.totalUsersCount
+    return state.usersPage.totalItemsCount
 }
 
 export const getCurrentPage =(state)=>{
@@ -31,4 +31,8 @@ export const getFollowed =(state)=>{
 
 export const getFollowingIIsProgress =(state)=>{
     return state.usersPage.followingIsProgress
+}
+
+export const getportionSize=(state)=>{
+    return state.usersPage.portionSize
 }

@@ -1,6 +1,7 @@
 .avatar{
     width: 100px;
     height: auto;
+    border-radius: 50%;
 }
 
 .avatarWrapper{
@@ -10,6 +11,13 @@
 .wrapperItemUser{
     display: flex;
     align-items: center;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.nameWrapper{
+    margin-right: 30px;
+    width: 100px;
 }
 
 

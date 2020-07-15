@@ -13,22 +13,16 @@ const SingleUser = ({us,followingIsProgress,unFollow,follow})=>{
                     <NavLink  to={`./profile/${us.id}`}>
                         <img className={classes.avatar} src={us.photos.small != null ? us.photos.small : userPhoto} alt="Avatar"/>
                     </NavLink>
+                    <div>{us.followed
+                        ? <button className={classes.btnUnfollow} disabled={followingIsProgress.some(id => id === us.id)} onClick={()=>{unFollow(us.id)}}>Unfollow</button>
+                        : <button className={classes.btnFollow} disabled={followingIsProgress.some(id => id === us.id)} onClick={() => {follow(us.id)}}>Follow</button>}
                 </div>
-                <div>{us.followed
-                    ? <button className={classes.btnUnfollow} disabled={followingIsProgress.some(id => id === us.id)} onClick={()=>{unFollow(us.id)}}>Unfollow</button>
-                    : <button className={classes.btnFollow} disabled={followingIsProgress.some(id => id === us.id)} onClick={() => {follow(us.id)}}>Follow</button>}
                 </div>
-            </span>
-            <span>
-                <span>
+                <span className={classes.nameWrapper}>
                     <h2>{us.name}</h2>
                     <div>{us.status}</div>
                 </span>
-                <span>
-
-                </span>
             </span>
-
         </div>)
 
 }
