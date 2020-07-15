@@ -1,51 +1,51 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6dd3e25f0aaae2628b18d2dd0f4c8a4f",
+    "revision": "a4e920c1ccefdb94f45b9cc689b4d715",
     "url": "/SocialNetStu-/index.html"
   },
   {
-    "revision": "d01f8813362c6110117e",
+    "revision": "a20219ca0337fd15e844",
     "url": "/SocialNetStu-/static/css/3.10fd2c14.chunk.css"
   },
   {
-    "revision": "c27370dc486142ec0a75",
+    "revision": "001dbf3c5e056501d8bf",
     "url": "/SocialNetStu-/static/css/4.f5c90613.chunk.css"
   },
   {
-    "revision": "cda4d4c8c7220bc6fca3",
+    "revision": "d53422aeb271a05944a5",
     "url": "/SocialNetStu-/static/css/5.1f5f7ad0.chunk.css"
   },
   {
-    "revision": "a8b7afe298bc55969199",
+    "revision": "b1c9f1191a4b477fa25d",
     "url": "/SocialNetStu-/static/css/main.7b6e1339.chunk.css"
   },
   {
-    "revision": "38558fba85a1c011ec8c",
-    "url": "/SocialNetStu-/static/js/2.132ecb31.chunk.js"
+    "revision": "730f65b8dca7267205c5",
+    "url": "/SocialNetStu-/static/js/2.20f449b4.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/SocialNetStu-/static/js/2.132ecb31.chunk.js.LICENSE.txt"
+    "url": "/SocialNetStu-/static/js/2.20f449b4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d01f8813362c6110117e",
-    "url": "/SocialNetStu-/static/js/3.27bbf075.chunk.js"
+    "revision": "a20219ca0337fd15e844",
+    "url": "/SocialNetStu-/static/js/3.52483338.chunk.js"
   },
   {
-    "revision": "c27370dc486142ec0a75",
-    "url": "/SocialNetStu-/static/js/4.95131c66.chunk.js"
+    "revision": "001dbf3c5e056501d8bf",
+    "url": "/SocialNetStu-/static/js/4.04906278.chunk.js"
   },
   {
-    "revision": "cda4d4c8c7220bc6fca3",
-    "url": "/SocialNetStu-/static/js/5.938a2665.chunk.js"
+    "revision": "d53422aeb271a05944a5",
+    "url": "/SocialNetStu-/static/js/5.0e346986.chunk.js"
   },
   {
-    "revision": "a8b7afe298bc55969199",
-    "url": "/SocialNetStu-/static/js/main.d5ca8961.chunk.js"
+    "revision": "b1c9f1191a4b477fa25d",
+    "url": "/SocialNetStu-/static/js/main.e2396fc1.chunk.js"
   },
   {
-    "revision": "858f8ee761d2c7886d0d",
-    "url": "/SocialNetStu-/static/js/runtime-main.1239d7e6.js"
+    "revision": "bc579041aeba8f39942c",
+    "url": "/SocialNetStu-/static/js/runtime-main.5979ecad.js"
   },
   {
     "revision": "a51b1bb5f980ecd2a07893b642cc6028",

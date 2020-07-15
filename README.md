@@ -1,2 +1,0 @@
-# SocialNetStu-
-dsa
