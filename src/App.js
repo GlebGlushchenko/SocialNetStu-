@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import './App.css';
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {HashRouter, Route, withRouter} from 'react-router-dom';
 import Nav from './components/Nav/Nav.jsx';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -64,13 +64,13 @@ const AppContainer =compose(
 
 const SamuraiJSApp =(props)=>{
     return(
-        <BrowserRouter>
+        <HashRouter>
             <React.StrictMode>
                 <Provider store={store}>
                     <AppContainer />
                 </Provider>
             </React.StrictMode>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 

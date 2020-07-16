@@ -16,6 +16,12 @@ const ProfileInfo = (props)=>{
             <Preloader />
         )
     }
+    const onMainPhotoSelected =(e)=>{
+        if(e.target.files.length){
+            props.savePhoto(e.target.files[0])
+        }
+    }
+    let x = props.profile.contacts
 
     return(
         <div>
@@ -25,8 +31,11 @@ const ProfileInfo = (props)=>{
                      alt=""/>
              <div className={classes.about_wrapper}>
                 <div>
-                    <NavLink to={`/profile/${props.profile.userId}`}><img className={classes.avatar_img} src={!props.profile.photos.small? defaultAvatar:props.profile.photos.small} alt=""/></NavLink>
+                    <NavLink to={`/profile/${props.profile.userId}`}><img className={classes.avatar_img} src={props.profile.photos.large || defaultAvatar} alt=""/></NavLink>
                 </div>
+                 <div>{props.isOwner && <input onChange={(e)=>{
+                     onMainPhotoSelected(e)
+                 }} type={'file'}/> }</div>
                 <div>
                     <h2>{props.profile.fullName}</h2>
                 </div>
@@ -38,13 +47,14 @@ const ProfileInfo = (props)=>{
                 </div>
             </div>
             <div className={classes.contacts_wrapper}>
+                {}
                 <div className={classes.contact_link}>
-                  <div><a href="#">{props.profile.contacts.vk}</a></div>
-                  <div><a href="#">{props.profile.contacts.youtube}</a></div>
-                  <div><a href="#">{props.profile.contacts.instagram}</a></div>
-                  <div><a href="#">{props.profile.contacts.twitter}</a></div>
-                  <div><a href="#">{props.profile.contacts.website}</a></div>
-                  <div><a href="#">{props.profile.contacts.facebook}</a></div>
+                  <div><a href={props.profile.contacts.vk}></a>VK</div>
+                  <div><a href={props.profile.contacts.youtube}>You-Tube</a></div>
+                  <div><a href={props.profile.contacts.instagram}>Instagram</a></div>
+                  <div><a href={props.profile.contacts.twitter}>Twitter</a></div>
+                  <div><a href={props.profile.contacts.website}>Website</a></div>
+                  <div><a href={props.profile.contacts.facebook}>Facebook</a></div>
                 </div>
                 <div className={classes.job_Search}>
                     <span>Поиск работы:</span>
