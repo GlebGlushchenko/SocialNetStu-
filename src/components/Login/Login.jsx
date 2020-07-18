@@ -10,7 +10,7 @@ import classes from './Login.module.css'
 
 export const Input = Elements('input')
 
-const LoginForm =({handleSubmit,error})=>{
+const LoginForm =({handleSubmit,error,captcha_url})=>{
 
     return(
         <form className={classes.form} onSubmit={handleSubmit}>
@@ -22,6 +22,12 @@ const LoginForm =({handleSubmit,error})=>{
                     <button>Login</button>
                 </div>
             </div>
+            {captcha_url
+            && <div>
+                <img src={captcha_url} alt=""/>
+                {creatorNewField('','captcha',[],Input)}
+            </div>}
+
             {error && <div className={classes.error}>
                 <div>{error}</div>
             </div>}
@@ -33,8 +39,8 @@ const LoginReduxForm = reduxForm({form:'login'})(LoginForm)
 
 const Login = (props)=>{
     const onSubmit = (formData) => {
-        let {email,password,rememberMe} = formData
-        props.login(email,password,rememberMe)
+        let {email,password,rememberMe,captcha} = formData
+        props.login(email,password,rememberMe,captcha)
 
     }
     if(props.auth){
@@ -43,14 +49,15 @@ const Login = (props)=>{
     return(
         <div>
             <h1>Login</h1>
-            <LoginReduxForm onSubmit={onSubmit} />
+            <LoginReduxForm captcha_url={props.captcha_url} onSubmit={onSubmit} />
             {}
         </div>
     )
 }
 let mapStateToProps =(state)=>{
     return{
-        auth:state.auth.isAuth
+        auth:state.auth.isAuth,
+        captcha_url:state.auth.captcha_url
     }
 
 }
