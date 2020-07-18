@@ -8,7 +8,7 @@ import {Redirect} from 'react-router-dom';
 import classes from './Login.module.css'
 
 
-const Input = Elements('input')
+export const Input = Elements('input')
 
 const LoginForm =({handleSubmit,error})=>{
 

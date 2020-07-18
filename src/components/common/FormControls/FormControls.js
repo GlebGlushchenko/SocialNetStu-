@@ -20,7 +20,7 @@ export const Elements = Elements=>({input,meta,...props})=>{
 
 export const creatorNewField= (placeholder,name,validate,component,props,text ='')=> (
     <div>
-        <Field placeholder={placeholder} name={name} component={component} validate={validate} {...props}/>{text}
+        <Field placeholder={placeholder} name={name} validate={validate} component={component}  {...props}/>{text}
 
     </div>
     )

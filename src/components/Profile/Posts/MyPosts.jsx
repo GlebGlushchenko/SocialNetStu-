@@ -28,7 +28,7 @@ const MyPosts = React.memo((props) => {
     )
 });
 
-const textarea = Elements('textarea')
+export const textarea = Elements('textarea')
 
 const AddPostForm =(props)=>{
     return(

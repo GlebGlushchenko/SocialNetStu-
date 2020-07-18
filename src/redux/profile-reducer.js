@@ -1,4 +1,5 @@
 import {profileAPI} from '../api/api';
+import {stopSubmit} from 'redux-form';
 
 
 const ADD_POST = 'network/profile/ADD-POST';
@@ -6,12 +7,14 @@ const SET_USERS_PROFILE = 'network/profile/ADD-SET_USERS_PROFILE';
 const GET_USER_STATUS ='network/profile/GET_USER_STATUS'
 const DELET_POST ='network/profile/DELET_POST'
 const SAVE_PHOTO_SUCCESS ='network/profile/SAVE_PHOTO_SUCCESS'
+const SAVE_PROFILE ='network/profile/SAVE_PROFILE'
 
 
 
 let initialState = {
     profile: null,
     status:'',
+    profileStatusUpdate:null,
 
     postData: [
         {
@@ -57,6 +60,9 @@ const profileReducer = (state = initialState, action) => {
         case SAVE_PHOTO_SUCCESS:
             return {...state,profile:{...state.profile,photos:action.photo}}
 
+        case SAVE_PROFILE:
+            return {...state,profileStatusUpdate:action.statusUpdate}
+
 
         default:
             return state
@@ -67,6 +73,7 @@ export const setUserProfile = (profile) => ({type: SET_USERS_PROFILE,profile})
 export const setUsersStatus = (status) => ({type: GET_USER_STATUS,status:status})
 export const deletePost = (postId) =>({type:DELET_POST,postId})
 export const savePhotoSuccess = (photo) =>({type:SAVE_PHOTO_SUCCESS,photo})
+export const saveProfileSuccess = (statusUpdate) =>({type:SAVE_PROFILE,statusUpdate})
 
 export const getUserProfile =(userId) => async(dispatch) =>{
    let response = await profileAPI.getProfile(userId)
@@ -89,6 +96,20 @@ export const savePhoto =(photo)=> async(dispatch)=>{
     let response = await profileAPI.savePhoto(photo)
         if (response.data.resultCode===0){
             dispatch(savePhotoSuccess(response.data.data.photos))
+        }
+}
+
+export const saveProfile =(formData)=> async(dispatch,getState)=>{
+    const userId = getState().auth.id
+    let response = await profileAPI.saveProfile(formData)
+        if (response.data.resultCode===0){
+
+            dispatch(getUserProfile(userId))
+            dispatch(saveProfileSuccess('success'))
+            dispatch(saveProfileSuccess(null))
+        }else {
+            dispatch(stopSubmit('ProfileEditForm',{_error:response.data.messages[0]}))
+            return Promise.reject(response.data.messages[0])
         }
 }
 
