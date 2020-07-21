@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import './App.css';
-import {HashRouter, Route, withRouter} from 'react-router-dom';
+import {HashRouter, Redirect, Route, Switch, withRouter} from 'react-router-dom';
 import Nav from './components/Nav/Nav.jsx';
 import News from './components/News/News';
 import Music from './components/Music/Music';
@@ -14,6 +14,7 @@ import {initializedApp} from './redux/app-reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
 import {LoaderComponent} from './components/common/Preloader/LoaderComponent';
+import {NotFound404} from './components/common/404/NotFound404';
 
 const DialogsContainer =React.lazy(()=>import('./components/Dialogs/DialogsContainer'))
 const ProfileContainer =React.lazy(()=>import('./components/Profile/ProfileContainer'))
@@ -36,16 +37,21 @@ class App extends React.Component{
                     <div className='app__wrapper'>
                         <HeaderContainer/>
                         <Nav/>
-                        <div className='app__wrapper-content'>
-                            <Route path='/profile/:userId?' render={ () => <ProfileContainer/>}/>
-                            <Route path='/dialogs' render={ () => <DialogsContainer />}/>
-                            <Route path='/users' render={ () => <UsersContainer />}/>
-                            <Route path='/news' component={News}/>
-                            <Route path='/music' component={Music}/>
-                            <Route path='/settings' component={Settings}/>
-                            <Route path='/fridends' render={ () => <FriendsContainer />}/>
-                            <Route path='/login' render={ () => <Login />}/>
-                        </div>
+                            <div className='app__wrapper-content'>
+                                <Switch>
+                                    <Route path='/profile/:userId?' render={ () => <ProfileContainer/>}/>
+                                    <Route path='/dialogs' render={ () => <DialogsContainer />}/>
+                                    <Route path='/users' render={ () => <UsersContainer />}/>
+                                    <Route path='/news' component={News}/>
+                                    <Route path='/music' component={Music}/>
+                                    <Route path='/settings' component={Settings}/>
+                                    <Route path='/fridends' render={ () => <FriendsContainer />}/>
+                                    <Route path='/login' render={ () => <Login />}/>
+                                    <Route path='*' render={ () => <NotFound404 />}/>
+
+                                    <Redirect from='/' to='/profile'/>
+                                </Switch>
+                            </div>
                     </div>
                 </div>
             </Suspense>

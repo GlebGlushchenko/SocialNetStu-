@@ -1,7 +1,6 @@
 import classes from './Paginator.module.css';
 import React, {useState} from 'react';
-import nextBtnImg from '../../../assets/images/Array/next.png'
-import prefBtnImg from '../../../assets/images/Array/previous.png'
+
 
 
 const Paginator = ({totalItemsCount,pageSize,currentPage,onChangeToPage,portionSize = 10})=>{

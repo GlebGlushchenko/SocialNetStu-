@@ -1,5 +1,6 @@
 import {followAPI, userAPI} from '../api/api';
 import {updateObjectInArray} from '../utilite/helpers/object-helper';
+import {photosType} from "../types/types";
 //Вынос в константу значения для type у экшина просто удобнее и меньше шансов ошибиться
 const FOLLOW = 'network/users/FOLLOW';
 const UNFOLLOW = 'network/users/UNFOLLOW';
@@ -10,8 +11,27 @@ const TOGGLE_IS_FETCHING = 'network/users/TOGGLE_IS_FETCHING';
 const TOGGLE_IS_FOLOOWING_PROGRESS = 'network/users/TOGGLE_IS_FOLOOWING_PROGRESS';
 
 
+export type initialStateType={
+    users:Array<usersArrayType>
+    user:number
+    pageSize:number
+    totalItemsCount:number
+    currentPage:number
+    isFetching:boolean
+    followingIsProgress:Array<number>
+    portionSize:number
+
+}
+type usersArrayType={
+    id:number
+    name:string
+    status:string
+    photos: photosType
+    followed:boolean
+}
+
 // Инициализируем дефолтное значение для стейта
-let initialState = {
+let initialState:initialStateType = {
     users: [],
     user: 0,
     pageSize: 10 ,
@@ -23,7 +43,7 @@ let initialState = {
 
 }
     // Создаём Reducer в который передаём наш дефолтный стейт и экшины
-const usersReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action:any):initialStateType => {
     // switch это то же if else
     switch (action.type) {
         // если в в экшине type рашен FOLLOW то мы попадаем сюда \/
@@ -72,17 +92,53 @@ const usersReducer = (state = initialState, action) => {
 }
 // создаём экшин ериэйтор ЭКШИН это обьет у которого есть как минимум свойство type тут мы просто создаём его
 //  в Reducer пападает не экшин криэйтор а производное от него т.е экшин с type который уже будет прогоняться по switch
-export const followSuccess = (userId) => ({type: FOLLOW, userId})
-export const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
-export const setUsers = (users) => ({type: SET_USERS, users})
-export const setCurrentPage = (currentPage) => ({type: CURRENT_PAGE,currentPage})
-export const totalItemsCount = (totalItemsCount) => ({type: TOTAL_USERS_COUNT,totalItemsCount})
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING,isFetching} )
-export const toggleIsFollowingIsProgress = (isFetching,id) => ({type: TOGGLE_IS_FOLOOWING_PROGRESS,isFetching,id} )
+type followSuccessActionType={
+    type:typeof FOLLOW
+    userId:string
+}
+
+type unfollowSuccessActionType ={
+    type:typeof UNFOLLOW
+    userId:string
+}
+
+type setUsersActuionType ={
+    type:typeof SET_USERS
+    users:Array<any>
+}
+
+type setCurrentPageActionType={
+    type:typeof CURRENT_PAGE
+    currentPage:number
+}
+
+type totalItemsCountActionType={
+    type:typeof TOTAL_USERS_COUNT
+    totalItemsCount:number
+}
+
+type toggleIsFetchingActionType={
+    type:typeof TOGGLE_IS_FETCHING
+    isFetching:boolean
+}
+
+type toggleIsFollowingIsProgressActionType={
+    type:typeof TOGGLE_IS_FOLOOWING_PROGRESS
+    isFetching:boolean
+    id:string
+}
+
+export const followSuccess = (userId:string):followSuccessActionType => ({type: FOLLOW, userId})
+export const unfollowSuccess = (userId:string):unfollowSuccessActionType => ({type: UNFOLLOW, userId})
+export const setUsers = (users:Array<usersArrayType>):setUsersActuionType => ({type: SET_USERS, users})
+export const setCurrentPage = (currentPage:number):setCurrentPageActionType => ({type: CURRENT_PAGE,currentPage})
+export const totalItemsCount = (totalItemsCount:number):totalItemsCountActionType => ({type: TOTAL_USERS_COUNT,totalItemsCount})
+export const toggleIsFetching = (isFetching:boolean):toggleIsFetchingActionType => ({type: TOGGLE_IS_FETCHING,isFetching} )
+export const toggleIsFollowingIsProgress = (isFetching:boolean,id:string):toggleIsFollowingIsProgressActionType => ({type: TOGGLE_IS_FOLOOWING_PROGRESS,isFetching,id} )
 // Thunk Creator ему можно передать значение в параметры а обычной санке нет обычная санка просто принемает диспатч для это го мы и делаем для неё обёртку
-export const getUsers =(currentPage,pageSize)=> {
+export const getUsers =(currentPage:number,pageSize:number)=> {
     // Сама санка Thunk
-    return async(dispatch) =>{
+    return async(dispatch:any) =>{
         // Thunk диспачит экшин криэйторы с нужны ми им значениями
         // не мы руками вызываем диспатч а санка тоесть там где нужно мы вызовем санку и она уже будет дичпатчить акшин криэёторы
         dispatch(setCurrentPage(currentPage))
@@ -98,7 +154,7 @@ export const getUsers =(currentPage,pageSize)=> {
 // ==Общий метод сокрощяет код избавляет от дублирования кода
 // Определяем функцию и ждём что бы к нам в параметры передали то что мы хотим использовать внутри себя
 //Это Thunk Creator
-const followAndUnfollow = async (dispatch,userId,apiMethod,actionCreator)=>{
+const followAndUnfollow = async (dispatch:any,userId:string,apiMethod:any,actionCreator:any)=>{
     // Вот это уже Thunk
     //Диспачим Экшин креэйтор и передаём значение в параметры
     dispatch(toggleIsFollowingIsProgress(true, userId))
@@ -114,18 +170,18 @@ const followAndUnfollow = async (dispatch,userId,apiMethod,actionCreator)=>{
 }
 
 // Thunk Creator
-export const follow =(userId)=> {
+export const follow =(userId:string)=> {
     //Thunk Санка
-    return async (dispatch) => {
+    return async (dispatch:any) => {
         // Вызов этой функции и передача в неё значений которые ей нужны
         followAndUnfollow(dispatch,userId,followAPI.postFollow.bind(userId),followSuccess)
     }
 }
 
 // Thunk Creator
-export const unFollow=(userId)=>{
+export const unFollow=(userId:string)=>{
     //Thunk Санка
-    return async(dispatch)=>{
+    return async(dispatch:any)=>{
         // Вызов этой функции и передача в неё значений которые ей нужны
         followAndUnfollow(dispatch,userId,followAPI.deleteFolllow.bind(userId),unfollowSuccess)
     }
